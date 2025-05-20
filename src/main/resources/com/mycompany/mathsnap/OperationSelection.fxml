@@ -3,16 +3,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml" prefHeight="640.0" prefWidth="480.0" style="-fx-background-color: #B3E5FC;" stylesheets="@style.css">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.mycompany.mathsnap.OperationSelectionController" prefHeight="640.0" prefWidth="480.0" style="-fx-background-color: #B3E5FC;" stylesheets="@style.css">
     <VBox alignment="CENTER" spacing="24.0"
           AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
           prefWidth="480.0" prefHeight="640.0">
-        <Text text="Choose an Operation" styleClass="operation-title" />
-        <Button fx:id="additionButton" text="Addition" styleClass="operation-btn addition-btn" />
-        <Button fx:id="subtractionButton" text="Subtraction" styleClass="operation-btn subtraction-btn" />
-        <Button fx:id="multiplicationButton" text="Multiplication" styleClass="operation-btn multiplication-btn" />
-        <Button fx:id="divisionButton" text="Division" styleClass="operation-btn division-btn" />
-        <Button fx:id="backButton" text="Back" styleClass="back-btn" />
+        <Text text="Choose an Operation" styleClass="welcome-title" />
+        <Button fx:id="additionButton" text="Addition" styleClass="welcome-start-btn" />
+        <Button fx:id="subtractionButton" text="Subtraction" styleClass="welcome-start-btn" />
+        <Button fx:id="multiplicationButton" text="Multiplication" styleClass="welcome-start-btn" />
+        <Button fx:id="divisionButton" text="Division" styleClass="welcome-start-btn" />
+        <Button fx:id="backButton" text="Back" styleClass="welcome-start-btn" />
     </VBox>
 </AnchorPane> 

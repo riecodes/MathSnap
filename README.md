@@ -1,5 +1,24 @@
 # MathSnap: Flashcard Drills
 
+## Project Progress Checklist
+
+- [x] Set up Maven JavaFX project in NetBeans 25
+- [x] Created and styled Welcome screen (Welcome.fxml) with custom font and portrait orientation
+- [x] Made Start button clickable and connected to Operation Selection screen
+- [x] Created OperationSelection.fxml (initial version)
+- [ ] Revise OperationSelection.fxml to match Welcome screen design (portrait, centered, child-friendly)
+- [ ] Create and connect controllers for Operation Selection
+- [ ] Create Difficulty Selection screen (DifficultySelection.fxml)
+- [ ] Create Flashcard Drill screen (Flashcard.fxml)
+- [ ] Create Feedback screen (Feedback.fxml)
+- [ ] Implement models and problem generator
+- [ ] Develop controllers for navigation and logic
+- [ ] Apply CSS for color palette and child-friendly design to all screens
+- [ ] Add animations and feedback logic
+- [ ] Test with sample problems and user flows
+
+---
+
 ## Overview
 MathSnap: Flashcard Drills is a JavaFX application designed to help toddlers (ages 2-5) develop basic math skills through interactive flashcard drills. The app is built with Maven and JavaFX in Apache NetBeans 25, featuring a child-friendly, colorful interface and immediate feedback for continuous learning.
 
@@ -116,12 +135,16 @@ pom.xml
 ---
 
 ## Next Steps
-1. Create FXML layouts for each screen (in progress).
-2. Implement models and problem generator.
-3. Develop controllers for navigation and logic.
-4. Apply CSS for color palette and child-friendly design.
-5. Add animations and feedback logic.
-6. Test with sample problems and user flows.
+1. Revise OperationSelection.fxml to match Welcome screen design (portrait, centered, child-friendly)
+2. Create and connect controllers for Operation Selection
+3. Create Difficulty Selection screen (DifficultySelection.fxml)
+4. Create Flashcard Drill screen (Flashcard.fxml)
+5. Create Feedback screen (Feedback.fxml)
+6. Implement models and problem generator
+7. Develop controllers for navigation and logic
+8. Apply CSS for color palette and child-friendly design to all screens
+9. Add animations and feedback logic
+10. Test with sample problems and user flows
 
 ---
 
