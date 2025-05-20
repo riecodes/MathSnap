@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'ComicNeueSansID';
+    src: url('font/comicsans.ttf');
+}
+
+.welcome-title {
+    -fx-font-family: 'ComicNeueSansID', cursive;
+    -fx-font-size: 36px;
+    -fx-fill: #1A237E;
+    -fx-text-alignment: center;
+}
+
+.welcome-start-btn {
+    -fx-font-family: 'ComicNeueSansID', cursive;
+    -fx-font-size: 24px;
+    -fx-background-color: #FFEB3B;
+    -fx-background-radius: 30;
+    -fx-text-fill: #1A237E;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 60px;
+}
+
+VBox {
+    -fx-alignment: center;
+} 
