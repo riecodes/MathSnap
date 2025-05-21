@@ -26,8 +26,12 @@ public class App extends Application {
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+    static void setRoot(String fxml) {
+        try {
+            scene.setRoot(loadFXML(fxml));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     static void setRootWithData(String fxml, Consumer<Object> controllerSetup) {

@@ -18,34 +18,22 @@ public class FlashcardController {
     @FXML private Label difficultyBadge;
     @FXML private Text feedbackText;
 
-    private MathProblem currentProblem;
-    private String operation;
-    private String difficulty;
-
-    public void initData(String operation, String difficulty) {
-        this.operation = operation;
-        this.difficulty = difficulty;
-        System.out.println("initData called: op=" + operation + ", diff=" + difficulty);
-        generateAndDisplayProblem();
-    }
-
     @FXML
     private void initialize() {
+        updateFlashcardUI();
         enterButton.setOnAction(e -> {
             System.out.println("Enter button clicked");
             checkAnswer();
         });
         nextButton.setOnAction(e -> {
             System.out.println("Next button clicked");
-            generateAndDisplayProblem();
+            FlashcardSession.getInstance().generateNewProblem();
+            updateFlashcardUI();
         });
         backButton.setOnAction(e -> {
             System.out.println("Back button clicked");
-            App.setRootWithData("DifficultySelection", controller -> {
-                if (controller instanceof DifficultySelectionController) {
-                    ((DifficultySelectionController) controller).initData(operation);
-                }
-            });
+            App.setRoot("DifficultySelection");
+            System.out.println("Navigation attempted to DifficultySelection.fxml");
         });
         answerField.setOnAction(e -> {
             System.out.println("Answer field Enter pressed");
@@ -53,41 +41,47 @@ public class FlashcardController {
         });
     }
 
-    private void generateAndDisplayProblem() {
-        if (operation == null || difficulty == null) {
-            System.out.println("generateAndDisplayProblem: operation or difficulty is null");
+    private void updateFlashcardUI() {
+        FlashcardSession session = FlashcardSession.getInstance();
+        MathProblem problem = session.getCurrentProblem();
+        String op = session.getOperation();
+        String diff = session.getDifficulty();
+        if (problem == null || op == null || diff == null) {
+            System.out.println("updateFlashcardUI: missing data");
             return;
         }
-        System.out.println("Generating problem for op=" + operation + ", diff=" + difficulty);
-        currentProblem = MathProblem.generateRandom(operation, difficulty);
-        operationLabel.setText(getOperationText(operation));
+        operationLabel.setText(getOperationText(op));
         operationLabel.getStyleClass().removeAll("add-label", "subtract-label", "multiply-label", "divide-label");
-        operationLabel.getStyleClass().add(getOperationLabelClass(operation));
-        operand1Text.setText(String.valueOf(currentProblem.getOperand1()));
-        operatorText.setText(currentProblem.getOperator());
-        operand2Text.setText(String.valueOf(currentProblem.getOperand2()));
+        operationLabel.getStyleClass().add(getOperationLabelClass(op));
+        operand1Text.setText(String.valueOf(problem.getOperand1()));
+        operatorText.setText(problem.getOperator());
+        operand2Text.setText(String.valueOf(problem.getOperand2()));
         answerField.setText("");
         answerField.setStyle("");
         feedbackText.setText("");
         feedbackText.setStyle("");
-        // Set difficulty badge
-        difficultyBadge.setText(getDifficultyText(difficulty));
+        difficultyBadge.setText(getDifficultyText(diff));
         difficultyBadge.getStyleClass().removeAll("easy-badge", "medium-badge", "hard-badge");
-        difficultyBadge.getStyleClass().add(getDifficultyBadgeClass(difficulty));
+        difficultyBadge.getStyleClass().add(getDifficultyBadgeClass(diff));
     }
 
     private void checkAnswer() {
+        FlashcardSession session = FlashcardSession.getInstance();
+        MathProblem problem = session.getCurrentProblem();
         try {
             int userAnswer = Integer.parseInt(answerField.getText().trim());
-            if (userAnswer == currentProblem.getCorrectAnswer()) {
-                answerField.setStyle("-fx-border-color: #8BC34A; -fx-border-width: 3px;"); // Green
+            if (userAnswer == problem.getCorrectAnswer()) {
+                answerField.setStyle("-fx-border-color: #8BC34A; -fx-border-width: 3px; -fx-width: 500px;"); // Green
                 feedbackText.setText("Nice!");
                 feedbackText.setStyle("-fx-fill: #8BC34A; -fx-font-size: 24px; -fx-font-weight: bold;");
                 System.out.println("Correct answer!");
                 // Auto-generate new problem after 1 second
                 new Thread(() -> {
                     try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
-                    javafx.application.Platform.runLater(this::generateAndDisplayProblem);
+                    javafx.application.Platform.runLater(() -> {
+                        session.generateNewProblem();
+                        updateFlashcardUI();
+                    });
                 }).start();
             } else {
                 answerField.setStyle("-fx-border-color: #EF5350; -fx-border-width: 3px;"); // Red
@@ -126,7 +120,7 @@ public class FlashcardController {
     private String getDifficultyText(String diff) {
         switch (diff) {
             case "EASY": return "Easy";
-            case "MEDIUM": return "Medium";
+            case "MODERATE": return "Medium";
             case "HARD": return "Hard";
             default: return "";
         }
@@ -135,7 +129,7 @@ public class FlashcardController {
     private String getDifficultyBadgeClass(String diff) {
         switch (diff) {
             case "EASY": return "easy-badge";
-            case "MEDIUM": return "medium-badge";
+            case "MODERATE": return "medium-badge";
             case "HARD": return "hard-badge";
             default: return "easy-badge";
         }

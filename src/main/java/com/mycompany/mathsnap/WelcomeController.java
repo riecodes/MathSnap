@@ -1,7 +1,5 @@
 package com.mycompany.mathsnap;
 
-import java.io.IOException;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -14,7 +12,7 @@ public class WelcomeController {
         startButton.setOnAction(e -> {
             try {
                 App.setRoot("OperationSelection");
-            } catch (IOException ex) {
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         });

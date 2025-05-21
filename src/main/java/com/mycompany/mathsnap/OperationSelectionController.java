@@ -1,7 +1,5 @@
 package com.mycompany.mathsnap;
 
-import java.io.IOException;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -21,21 +19,14 @@ public class OperationSelectionController {
         backButton.setOnAction(e -> {
             try {
                 App.setRoot("Welcome");
-            } catch (IOException ex) {
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         });
     }
 
     private void goToDifficulty(String operation) {
-        try {
-            App.setRootWithData("DifficultySelection", controller -> {
-                if (controller instanceof DifficultySelectionController) {
-                    ((DifficultySelectionController) controller).initData(operation);
-                }
-            });
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        FlashcardSession.getInstance().setOperation(operation);
+        App.setRoot("DifficultySelection");
     }
 } 

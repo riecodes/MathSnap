@@ -30,7 +30,7 @@ public class MathProblem {
             case "EASY":
                 min1 = min2 = 1; max1 = max2 = 9;
                 break;
-            case "MEDIUM":
+            case "MODERATE":
                 min1 = 1; max1 = 99; min2 = 1; max2 = 99;
                 break;
             case "HARD":
@@ -40,7 +40,7 @@ public class MathProblem {
         int a = rand.nextInt(max1 - min1 + 1) + min1;
         int b = rand.nextInt(max2 - min2 + 1) + min2;
         String op;
-        int answer = 0;
+        int answer;
         switch (operation) {
             case "ADDITION":
                 op = "+"; answer = a + b; break;
