@@ -1,6 +1,7 @@
 package com.mycompany.mathsnap;
 
 import java.io.IOException;
+import java.util.function.Consumer;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,6 +28,19 @@ public class App extends Application {
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
+    }
+
+    static void setRootWithData(String fxml, Consumer<Object> controllerSetup) {
+        try {
+            FXMLLoader loader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+            Parent root = loader.load();
+            if (controllerSetup != null) {
+                controllerSetup.accept(loader.getController());
+            }
+            scene.setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private static Parent loadFXML(String fxml) throws IOException {

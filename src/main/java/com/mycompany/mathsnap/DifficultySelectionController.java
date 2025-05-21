@@ -9,6 +9,8 @@ public class DifficultySelectionController {
     @FXML private Button hardButton;
     @FXML private Button backButton;
 
+    private String selectedOperation;
+
     @FXML
     private void initialize() {
         easyButton.setOnAction(e -> handleDifficulty("EASY"));
@@ -23,8 +25,20 @@ public class DifficultySelectionController {
         });
     }
 
+    public void initData(String operation) {
+        this.selectedOperation = operation;
+    }
+
     private void handleDifficulty(String difficulty) {
-        System.out.println("Selected operation: " + AppContext.selectedOperation + ", difficulty: " + difficulty);
-        // TODO: Navigate to Flashcard screen and pass operation + difficulty
+        System.out.println("Selected operation: " + selectedOperation + ", difficulty: " + difficulty);
+        try {
+            App.setRootWithData("Flashcard", controller -> {
+                if (controller instanceof FlashcardController) {
+                    ((FlashcardController) controller).initData(selectedOperation, difficulty);
+                }
+            });
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 } 

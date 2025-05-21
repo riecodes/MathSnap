@@ -28,10 +28,13 @@ public class OperationSelectionController {
     }
 
     private void goToDifficulty(String operation) {
-        AppContext.selectedOperation = operation;
         try {
-            App.setRoot("DifficultySelection");
-        } catch (IOException ex) {
+            App.setRootWithData("DifficultySelection", controller -> {
+                if (controller instanceof DifficultySelectionController) {
+                    ((DifficultySelectionController) controller).initData(operation);
+                }
+            });
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
