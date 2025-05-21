@@ -20,6 +20,42 @@
     -fx-pref-height: 60px;
 }
 
+.difficulty-btn {
+    -fx-font-family: 'ComicNeueSansID', cursive;
+    -fx-font-size: 24px;
+    -fx-background-radius: 30;
+    -fx-text-fill: #1A237E;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 60px;
+}
+.easy-btn {
+    -fx-font-family: 'ComicNeueSansID', cursive;
+    -fx-font-size: 24px;
+    -fx-background-color: #CFF5E7;
+    -fx-background-radius: 30;
+    -fx-text-fill: #1A237E;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 60px;
+}
+.medium-btn {
+    -fx-font-family: 'ComicNeueSansID', cursive;
+    -fx-font-size: 24px;
+    -fx-background-color: #FF9B42;
+    -fx-background-radius: 30;
+    -fx-text-fill: #1A237E;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 60px;
+}
+.hard-btn {
+    -fx-font-family: 'ComicNeueSansID', cursive;
+    -fx-font-size: 24px;
+    -fx-background-color: #BF5AF2;
+    -fx-background-radius: 30;
+    -fx-text-fill: #1A237E;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 60px;
+}
+
 VBox {
     -fx-alignment: center;
 } 

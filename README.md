@@ -6,9 +6,12 @@
 - [x] Created and styled Welcome screen (Welcome.fxml) with custom font and portrait orientation
 - [x] Made Start button clickable and connected to Operation Selection screen
 - [x] Created OperationSelection.fxml (initial version)
-- [ ] Revise OperationSelection.fxml to match Welcome screen design (portrait, centered, child-friendly)
-- [ ] Create and connect controllers for Operation Selection
-- [ ] Create Difficulty Selection screen (DifficultySelection.fxml)
+- [x] Revise OperationSelection.fxml to match Welcome screen design (portrait, centered, child-friendly)
+- [x] Create and connect controllers for Operation Selection
+- [x] Create Difficulty Selection screen (DifficultySelection.fxml)
+- [x] Add color-coded difficulty buttons and connect DifficultySelection.fxml to its controller
+- [x] Implement dynamic operation passing using AppContext (single DifficultySelection.fxml/controller for all operations)
+- [x] Style Difficulty Selection buttons: only one class per button, each with full style and color
 - [ ] Create Flashcard Drill screen (Flashcard.fxml)
 - [ ] Create Feedback screen (Feedback.fxml)
 - [ ] Implement models and problem generator
@@ -16,6 +19,16 @@
 - [ ] Apply CSS for color palette and child-friendly design to all screens
 - [ ] Add animations and feedback logic
 - [ ] Test with sample problems and user flows
+
+---
+
+## Recent Changes
+- Added AppContext for dynamic operation passing between screens
+- OperationSelectionController now sets AppContext.selectedOperation before navigating
+- DifficultySelectionController reads AppContext.selectedOperation and prints operation + difficulty
+- Only one DifficultySelection.fxml/controller is needed for all operations
+- Added CSS for .easy-btn, .medium-btn, .hard-btn for color-coded difficulty buttons
+- **JavaFX Note:** Only one CSS class name should be used per element (e.g., use `easy-btn` or `welcome-start-btn`, not both)
 
 ---
 

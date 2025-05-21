@@ -28,7 +28,7 @@ public class OperationSelectionController {
     }
 
     private void goToDifficulty(String operation) {
-        // TODO: Pass the selected operation to the Difficulty Selection screen
+        AppContext.selectedOperation = operation;
         try {
             App.setRoot("DifficultySelection");
         } catch (IOException ex) {

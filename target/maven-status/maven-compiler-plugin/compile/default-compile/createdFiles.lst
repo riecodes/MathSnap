@@ -1,4 +1,6 @@
 com\mycompany\mathsnap\App.class
 com\mycompany\mathsnap\OperationSelectionController.class
 com\mycompany\mathsnap\WelcomeController.class
+com\mycompany\mathsnap\DifficultySelectionController.class
 module-info.class
+com\mycompany\mathsnap\AppContext.class
