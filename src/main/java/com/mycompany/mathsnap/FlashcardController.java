@@ -71,10 +71,11 @@ public class FlashcardController {
         try {
             int userAnswer = Integer.parseInt(answerField.getText().trim());
             if (userAnswer == problem.getCorrectAnswer()) {
-                answerField.setStyle("-fx-border-color: #8BC34A; -fx-border-width: 3px; -fx-width: 500px;"); // Green
+                answerField.setStyle("-fx-border-color: #8BC34A; -fx-border-width: 3px;"); // Green
                 feedbackText.setText("Nice!");
                 feedbackText.setStyle("-fx-fill: #8BC34A; -fx-font-size: 24px; -fx-font-weight: bold;");
                 System.out.println("Correct answer!");
+                answerField.setText("");
                 // Auto-generate new problem after 1 second
                 new Thread(() -> {
                     try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
@@ -88,12 +89,14 @@ public class FlashcardController {
                 feedbackText.setText("Try again!");
                 feedbackText.setStyle("-fx-fill: #EF5350; -fx-font-size: 24px; -fx-font-weight: bold;");
                 System.out.println("Incorrect answer!");
+                answerField.setText("");
             }
         } catch (NumberFormatException e) {
             answerField.setStyle("-fx-border-color: #EF5350; -fx-border-width: 3px;"); // Red
             feedbackText.setText("Enter a number!");
             feedbackText.setStyle("-fx-fill: #EF5350; -fx-font-size: 24px; -fx-font-weight: bold;");
             System.out.println("Invalid input!");
+            answerField.setText("");
         }
     }
 

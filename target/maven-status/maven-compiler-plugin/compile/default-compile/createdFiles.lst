@@ -1,25 +1,9 @@
 com\mycompany\mathsnap\FlashcardSession.class
-com\mycompany\mathsnap\imgs\add.png
-com\mycompany\mathsnap\docs\~$oup 2_Application.docx
-com\mycompany\mathsnap\imgs\000.png
 com\mycompany\mathsnap\OperationSelectionController.class
-com\mycompany\mathsnap\Welcome.fxml
 com\mycompany\mathsnap\WelcomeController.class
-com\mycompany\mathsnap\imgs\color pallete for easy medium hard.png
-com\mycompany\mathsnap\imgs\001.png
-com\mycompany\mathsnap\imgs\multiply.png
 module-info.class
 com\mycompany\mathsnap\AppContext.class
 com\mycompany\mathsnap\FlashcardController.class
-com\mycompany\mathsnap\imgs\subtract.png
-com\mycompany\mathsnap\imgs\Applicaton Flow.png
 com\mycompany\mathsnap\App.class
 com\mycompany\mathsnap\MathProblem.class
-com\mycompany\mathsnap\imgs\divide.png
-com\mycompany\mathsnap\OperationSelection.fxml
-com\mycompany\mathsnap\style.css
-com\mycompany\mathsnap\font\comicsans.ttf
 com\mycompany\mathsnap\DifficultySelectionController.class
-com\mycompany\mathsnap\docs\Group 2_Application.pdf
-com\mycompany\mathsnap\Flashcard.fxml
-com\mycompany\mathsnap\imgs\mockup reference.png
