@@ -60,7 +60,7 @@ MathSnap/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/MathSnap.git
+   git clone https://github.com/riecodes/MathSnap.git
    ```
 
 2. Open the project in Apache NetBeans 25:
