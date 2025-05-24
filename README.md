@@ -1,3 +1,157 @@
+# 🧮 MathSnap - Interactive Mathematics Learning Platform
+
+![Java](https://img.shields.io/badge/Java-11-orange)
+![JavaFX](https://img.shields.io/badge/JavaFX-13-blue)
+![Maven](https://img.shields.io/badge/Maven-3.8.0-red)
+![IDE](https://img.shields.io/badge/IDE-NetBeans%2025-green)
+
+## 📝 Overview
+
+MathSnap is an interactive mathematics learning platform built with Java and JavaFX. This modern application provides an engaging way for students to learn and practice mathematics through an intuitive graphical user interface.
+
+## 🚀 Features
+
+- ✨ Modern JavaFX-based user interface
+- 📊 Interactive mathematical visualizations
+- 🎯 Step-by-step problem solving
+- 📱 Responsive design
+- 🎨 Beautiful and intuitive UI
+- 🔄 Real-time feedback
+- 📈 Progress tracking
+
+## 🛠️ Technology Stack
+
+- **Programming Language**: Java 11
+- **UI Framework**: JavaFX 13
+- **Build Tool**: Maven 3.8.0
+- **IDE**: Apache NetBeans 25
+- **Architecture**: Object-Oriented Programming (OOP)
+- **Design Pattern**: MVC (Model-View-Controller)
+
+## 🏗️ Project Structure
+
+```
+MathSnap/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── mycompany/
+│   │   │           └── mathsnap/
+│   │   │               ├── App.java
+│   │   │               ├── controllers/
+│   │   │               ├── models/
+│   │   │               └── views/
+│   │   └── resources/
+│   └── test/
+├── pom.xml
+└── README.md
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Java Development Kit (JDK) 11 or higher
+- Apache NetBeans 25
+- Maven 3.8.0 or higher
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/MathSnap.git
+   ```
+
+2. Open the project in Apache NetBeans 25:
+   - Launch NetBeans
+   - Go to File > Open Project
+   - Navigate to the cloned MathSnap directory
+   - Click "Open Project"
+
+3. Build the project:
+   - Right-click on the project in NetBeans
+   - Select "Clean and Build"
+
+### Running the Application
+
+#### Method 1: Using NetBeans
+1. Right-click on the project
+2. Select "Run"
+
+#### Method 2: Using Maven
+```bash
+mvn clean javafx:run
+```
+
+## 🛠️ Development
+
+### Debugging
+The project includes several debugging configurations:
+
+1. **Default Run**:
+   ```bash
+   mvn clean javafx:run
+   ```
+
+2. **Manual Debug**:
+   ```bash
+   mvn clean javafx:run@debug
+   ```
+
+3. **IDE Debug**:
+   - Use the built-in NetBeans debugger
+   - Set breakpoints in your code
+   - Press F5 to start debugging
+
+### Building
+```bash
+mvn clean package
+```
+
+## 📚 Key Components
+
+### Models
+- Mathematical problem representations
+- User progress tracking
+- Data structures for calculations
+
+### Views
+- JavaFX FXML layouts
+- Custom UI components
+- Responsive design elements
+
+### Controllers
+- Event handlers
+- Business logic
+- Data processing
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👥 Authors
+
+- Your Name - Initial work
+
+## 🙏 Acknowledgments
+
+- JavaFX team for the amazing UI framework
+- Apache NetBeans team for the excellent IDE
+- All contributors who have helped shape this project
+
+---
+
+⭐ Star this repository if you find it useful!
+
 # MathSnap: Flashcard Drills
 
 ## Project Progress Checklist
