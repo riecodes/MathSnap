@@ -37,25 +37,46 @@ public class MathProblem {
                         min = 1; max = 9;
                         break;
                     case "MODERATE":
-                        // 1-2 digit combo: each operand randomly 1-9 or 10-99
-                        // We'll handle this below
+                        // 1-digit and 2-digit combo for dividend and divisor
                         min = 1; max = 99;
                         break;
                     case "HARD":
-                        // 1-3 digit combo: each operand randomly 1-9, 10-99, or 100-999
-                        // We'll handle this below
                         min = 1; max = 999;
                         break;
                     default:
                         min = 1; max = 9;
                 }
                 for (int tries = 0; tries < 100; tries++) {
-                    // For MODERATE and HARD, pick dividend and divisor ranges per combo rules
                     int aMin = min, aMax = max, bMin = min, bMax = max;
                     if ("MODERATE".equals(difficulty)) {
-                        aMin = bMin = 1; aMax = bMax = 99;
-                        a = rand.nextBoolean() ? (rand.nextInt(9) + 1) : (rand.nextInt(90) + 10);
-                        b = rand.nextBoolean() ? (rand.nextInt(9) + 1) : (rand.nextInt(90) + 10);
+                        // One operand 1-digit, one operand 2-digit
+                        boolean oneDigitDividend = rand.nextBoolean();
+                        if (oneDigitDividend) {
+                            a = rand.nextInt(9) + 1; // dividend 1-digit
+                            // Find all 2-digit divisors
+                            java.util.List<Integer> divisors = new java.util.ArrayList<>();
+                            for (int d = 10; d <= 99; d++) {
+                                if (d < a && a % d == 0) divisors.add(d);
+                            }
+                            if (!divisors.isEmpty()) {
+                                b = divisors.get(rand.nextInt(divisors.size()));
+                                answer = a / b;
+                                return new MathProblem(a, b, op, answer, difficulty);
+                            }
+                        } else {
+                            a = rand.nextInt(90) + 10; // dividend 2-digit
+                            // Find all 1-digit divisors
+                            java.util.List<Integer> divisors = new java.util.ArrayList<>();
+                            for (int d = 1; d <= 9; d++) {
+                                if (d < a && a % d == 0) divisors.add(d);
+                            }
+                            if (!divisors.isEmpty()) {
+                                b = divisors.get(rand.nextInt(divisors.size()));
+                                answer = a / b;
+                                return new MathProblem(a, b, op, answer, difficulty);
+                            }
+                        }
+                        continue;
                     } else if ("HARD".equals(difficulty)) {
                         int[] ranges = {9, 99, 999};
                         int aRange = rand.nextInt(3), bRange = rand.nextInt(3);
@@ -91,19 +112,13 @@ public class MathProblem {
                         b = rand.nextInt(9) + 1;
                         break;
                     case "MODERATE":
-                        if (operation.equals("SUBTRACTION") || operation.equals("MULTIPLICATION")) {
-                            // One operand 1-digit, one operand 2-digit
-                            if (rand.nextBoolean()) {
-                                a = rand.nextInt(9) + 1;
-                                b = rand.nextInt(90) + 10;
-                            } else {
-                                a = rand.nextInt(90) + 10;
-                                b = rand.nextInt(9) + 1;
-                            }
+                        // One operand 1-digit, one operand 2-digit for all three operations
+                        if (rand.nextBoolean()) {
+                            a = rand.nextInt(9) + 1;
+                            b = rand.nextInt(90) + 10;
                         } else {
-                            // Addition: keep previous logic (allow both 1- or 2-digit)
-                            a = (rand.nextBoolean() ? (rand.nextInt(9) + 1) : (rand.nextInt(90) + 10));
-                            b = (rand.nextBoolean() ? (rand.nextInt(9) + 1) : (rand.nextInt(90) + 10));
+                            a = rand.nextInt(90) + 10;
+                            b = rand.nextInt(9) + 1;
                         }
                         break;
                     case "HARD":
