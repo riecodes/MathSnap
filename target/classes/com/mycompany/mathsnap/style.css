@@ -214,4 +214,23 @@ VBox {
 .flashcard-header-container {
     -fx-margin-top: 24px;
     margin-top: 24px;
+}
+
+.correct-answer-text {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-fill: #43A047;
+    -fx-text-fill: #43A047;
+    -fx-background-color: #E8F5E9;
+    -fx-padding: 8px 16px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-border-color: #43A047;
+    -fx-border-width: 2px;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-margin-top: 8px;
+    -fx-min-width: 120px;
+    -fx-max-width: 260px;
+    display: block;
 } 
