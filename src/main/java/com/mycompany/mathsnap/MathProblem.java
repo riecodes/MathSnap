@@ -37,11 +37,10 @@ public class MathProblem {
                         min = 1; max = 9;
                         break;
                     case "MODERATE":
-                        // 1-digit and 2-digit combo for dividend and divisor
                         min = 1; max = 99;
                         break;
                     case "HARD":
-                        min = 1; max = 999;
+                        min = 10; max = 99;
                         break;
                     default:
                         min = 1; max = 9;
@@ -53,7 +52,6 @@ public class MathProblem {
                         boolean oneDigitDividend = rand.nextBoolean();
                         if (oneDigitDividend) {
                             a = rand.nextInt(9) + 1; // dividend 1-digit
-                            // Find all 2-digit divisors
                             java.util.List<Integer> divisors = new java.util.ArrayList<>();
                             for (int d = 10; d <= 99; d++) {
                                 if (d < a && a % d == 0) divisors.add(d);
@@ -65,7 +63,6 @@ public class MathProblem {
                             }
                         } else {
                             a = rand.nextInt(90) + 10; // dividend 2-digit
-                            // Find all 1-digit divisors
                             java.util.List<Integer> divisors = new java.util.ArrayList<>();
                             for (int d = 1; d <= 9; d++) {
                                 if (d < a && a % d == 0) divisors.add(d);
@@ -78,19 +75,22 @@ public class MathProblem {
                         }
                         continue;
                     } else if ("HARD".equals(difficulty)) {
-                        int[] ranges = {9, 99, 999};
-                        int aRange = rand.nextInt(3), bRange = rand.nextInt(3);
-                        aMin = (aRange == 0) ? 1 : (aRange == 1) ? 10 : 100;
-                        aMax = ranges[aRange];
-                        bMin = (bRange == 0) ? 1 : (bRange == 1) ? 10 : 100;
-                        bMax = ranges[bRange];
-                        a = rand.nextInt(aMax - aMin + 1) + aMin;
-                        b = rand.nextInt(bMax - bMin + 1) + bMin;
+                        // Both dividend and divisor are 2-digit (10-99)
+                        a = rand.nextInt(90) + 10; // dividend 2-digit
+                        java.util.List<Integer> divisors = new java.util.ArrayList<>();
+                        for (int d = 10; d <= 99; d++) {
+                            if (d < a && a % d == 0) divisors.add(d);
+                        }
+                        if (!divisors.isEmpty()) {
+                            b = divisors.get(rand.nextInt(divisors.size()));
+                            answer = a / b;
+                            return new MathProblem(a, b, op, answer, difficulty);
+                        }
+                        continue;
                     } else {
                         a = rand.nextInt(max - min + 1) + min;
                         b = rand.nextInt(max - min + 1) + min;
                     }
-                    // Find all divisors in range
                     java.util.List<Integer> divisors = new java.util.ArrayList<>();
                     for (int d = bMin; d <= bMax; d++) {
                         if (d < a && a % d == 0) divisors.add(d);
