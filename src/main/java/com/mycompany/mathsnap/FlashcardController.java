@@ -86,7 +86,7 @@ public class FlashcardController {
                 }).start();
             } else {
                 answerField.setStyle("-fx-border-color: #EF5350; -fx-border-width: 3px;"); // Red
-                feedbackText.setText("Try again!");
+                feedbackText.setText("Try again!  (Correct answer: " + problem.getCorrectAnswer() + ")");
                 feedbackText.setStyle("-fx-fill: #EF5350; -fx-font-size: 24px; -fx-font-weight: bold;");
                 System.out.println("Incorrect answer!");
                 answerField.setText("");
