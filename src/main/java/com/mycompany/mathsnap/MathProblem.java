@@ -91,8 +91,20 @@ public class MathProblem {
                         b = rand.nextInt(9) + 1;
                         break;
                     case "MODERATE":
-                        a = (rand.nextBoolean() ? (rand.nextInt(9) + 1) : (rand.nextInt(90) + 10));
-                        b = (rand.nextBoolean() ? (rand.nextInt(9) + 1) : (rand.nextInt(90) + 10));
+                        if (operation.equals("SUBTRACTION") || operation.equals("MULTIPLICATION")) {
+                            // One operand 1-digit, one operand 2-digit
+                            if (rand.nextBoolean()) {
+                                a = rand.nextInt(9) + 1;
+                                b = rand.nextInt(90) + 10;
+                            } else {
+                                a = rand.nextInt(90) + 10;
+                                b = rand.nextInt(9) + 1;
+                            }
+                        } else {
+                            // Addition: keep previous logic (allow both 1- or 2-digit)
+                            a = (rand.nextBoolean() ? (rand.nextInt(9) + 1) : (rand.nextInt(90) + 10));
+                            b = (rand.nextBoolean() ? (rand.nextInt(9) + 1) : (rand.nextInt(90) + 10));
+                        }
                         break;
                     case "HARD":
                         a = rand.nextInt(90) + 10;
