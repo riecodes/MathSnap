@@ -130,6 +130,7 @@ public class MathProblem {
                     case "ADDITION":
                         op = "+"; answer = a + b; break;
                     case "SUBTRACTION":
+                        if (a < b) { int tmp = a; a = b; b = tmp; }
                         op = "-"; answer = a - b; break;
                     case "MULTIPLICATION":
                         op = "×"; answer = a * b; break;
